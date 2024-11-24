@@ -1,11 +1,7 @@
-<x-tests>
+{{-- <x-tests.app>
     <x-slot name="header">ヘッダー1</x-slot>
 コンポーネントテスト1
-</x-tests>
+</x-tests.app> --}}
 
-<x-card>
-    <x-slot:header>
-        タイトル
-    </x-slot:header>
-    これはカードの内容です。
-</x-card>
+
+<x-card title="タイトル" content="本文" />
