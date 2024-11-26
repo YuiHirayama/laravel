@@ -7,4 +7,5 @@
 @vite('resources/css/app.css')
 
 {{-- Component 属性でデータ受け渡し(@props) --}}
-<x-card title="タイトル" content="本文1" :message="$message" />
+<x-card title="タイトル1" content="本文1" :message="$message" />
+<x-card title="タイトル2" />
