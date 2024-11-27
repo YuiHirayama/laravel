@@ -28,6 +28,7 @@ Route::get('/dashboard', function () {
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']); //追記部分
 Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']); //追記部分
 Route::get('/servicecontainertest', [LifeCycleTestController::class, 'showServiceContainerTest']); //追記部分
+Route::get('/serviceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']); //追記部分
 
 
 Route::middleware('auth')->group(function () {
