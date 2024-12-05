@@ -17,12 +17,12 @@ use App\Http\Controllers\LifeCycleTestController; //追記部分
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('user.dashboard');
+})->middleware(['auth:users', 'verified'])->name('dashboard');
 
 
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']); //追記部分
