@@ -15,6 +15,7 @@
                             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">オーナー情報編集</h1>
                           </div>
                           <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                            <x-auth-validation-errors class="mb-4" :errors="$errors" />
                             <form method="post" action="{{ route('admin.owners.update', ['owner' => $owner->id]) }}">
                               @method('PUT')
                               @csrf
