@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                   <x-flash-messeage status="session('status')" />
                   <div class="flex justify-end mb-4">
-                    <button onclick="location.href='{{ route('owner.images.create' )}}'" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">新規登録</button>
+                    <button onclick="location.href='{{ route('owner.images.create') }}'" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">新規登録</button>
                   </div>
                     @foreach ($images as $image)
                       <div class="w-1/4 p-4">
