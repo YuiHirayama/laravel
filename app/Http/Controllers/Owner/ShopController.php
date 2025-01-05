@@ -10,6 +10,7 @@ use Closure;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UploadImageRequest;
 
+
 class ShopController extends Controller
 {
     public function __construct()
