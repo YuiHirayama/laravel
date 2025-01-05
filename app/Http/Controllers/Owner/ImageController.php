@@ -53,7 +53,27 @@ class ImageController extends Controller
      */
     public function store(UploadImageRequest $request)
     {
-        dd($request);
+        $imageFiles = $request->file('files'); // 複数のファイルを取得
+        if(!is_null($imageFiles)){ // 念のためnull判定
+            foreach($imageFiles as $imageFile){
+                // 配列内の要素が `UploadedFile` インスタンスか確認
+                if ($imageFile instanceof \Illuminate\Http\UploadedFile) {
+                    // ファイルを "products" フォルダに保存し、保存されたパスを取得
+                    $filePath = $imageFile->store('products', 'public');
+                    // 保存されたパスからファイル名を取得
+                    $fileNameToStore = basename($filePath);
+                    // データベースに保存
+                    Image::create([
+                        'owner_id' => Auth::id(),
+                        'filename' => $fileNameToStore,
+                    ]);
+                }
+            }
+        }
+
+        return redirect()->route('owner.images.index')
+        ->with(['message' => '画像登録を実施しました。',
+        'status' => 'info']);
     }
 
     /**
