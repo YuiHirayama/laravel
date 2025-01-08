@@ -1,3 +1,8 @@
+/* micromodal.css を読み込む */
+@import './micromodal.css';
+
+/* Tailwind のスタイルを読み込む */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
