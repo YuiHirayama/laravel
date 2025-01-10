@@ -65,7 +65,7 @@ class OwnersController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Owner::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Owner::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
