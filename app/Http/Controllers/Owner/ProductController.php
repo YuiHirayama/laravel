@@ -43,7 +43,7 @@ class ProductController extends Controller
     {
         $ownerInfo = Owner::with('shop.product.imageFirst')
         ->where('id', Auth::id())->get();
-        
+
         return view('owner.products.index',
         compact('ownerInfo'));
     }

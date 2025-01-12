@@ -48,7 +48,7 @@ class ShopController extends Controller
     public function edit(string $id)
     {
         $shop = Shop::findOrFail($id);
-        //dd(shop::findOrFail($id));
+        // dd(shop::findOrFail($id));
         return view('owner.shops.edit', compact('shop'));
     }
 
