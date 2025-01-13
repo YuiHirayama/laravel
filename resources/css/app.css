@@ -1,0 +1,14 @@
+/* micromodal.css を読み込む */
+@import './micromodal.css';
+/* swiper.css を読み込む */
+@import './swiper';
+
+/* swiper.css ページネーション、ナビゲーションなど、使いたい機能があれば追加
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination'; */
+
+/* Tailwind のスタイルを読み込む */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
