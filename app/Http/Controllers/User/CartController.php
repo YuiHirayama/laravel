@@ -61,22 +61,31 @@ class CartController extends Controller
 
         $lineItems = [];
         foreach($products as $product){
-            $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+            $quantity = '';
+            $quantity = Stock::where('product_id', $product->id)
+            ->sum('quantity');
 
             if($product->pivot->quantity > $quantity){
                 return ridirect()->route('user.cart.index');
             } else {
-                $lineItem = [
-                    'name' => $product->name,
-                    'description' => $product->information,
-                    'amount' => $product->price,
+                $price_data = ([
+                    'unit_amount' => $product->price,
                     'currency' => 'jpy',
+                    'product_data' => $product_data = ([
+                        'name' => $product->name,
+                        'description' => $product->information,
+                    ]),
+                ]);
+ 
+                $lineItem = [
+                    'price_data' => $price_data,
                     'quantity' => $product->pivot->quantity,
                 ];
+
                 array_push($lineItems, $lineItem);
             }
         }
-        // dd($lineItems);
+
         foreach($products as $product){
             Stock::create([
                 'product_id' => $product->id,
@@ -85,21 +94,18 @@ class CartController extends Controller
              ]);
         }
 
-        dd('test');
-
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
-        $session = \Stripe\Checkout\Session::create([
+        $session = \Stripe\Checkout\Session::create([ 
             'payment_method_types' => ['card'],
-            'line_items' => ['$lineItems'],
+            'line_items' => [[$lineItems]],
             'mode' => 'payment',
-            'success' => route('user.items.index'),
+            'success_url' => route('user.items.index'),
             'cancel_url' => route('user.cart.index'),
         ]);
 
-        $publicKye = env('STRIPE_PUBLIC_KYE');
+        $publicKey = env('STRIPE_PUBLIC_KEY');
 
-        return view('user.checkout.',
-            compact('session', 'publicKey'));
+        return view('user.checkout', compact('session', 'publicKey'));
     }
 }
