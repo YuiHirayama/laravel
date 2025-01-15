@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ComponentTestController; //追記部分
-use App\Http\Controllers\LifeCycleTestController; //追記部分
-use App\Http\Controllers\User\ItemController; //追記部分
-use App\Http\Controllers\User\CartController; //追記部分
+use App\Http\Controllers\ComponentTestController;
+use App\Http\Controllers\LifeCycleTestController;
+use App\Http\Controllers\User\ItemController;
+use App\Http\Controllers\User\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,10 +41,10 @@ Route::prefix('cart')->
 // })->middleware(['auth:users', 'verified'])->name('dashboard');
 
 
-Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']); //追記部分
-Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']); //追記部分
-Route::get('/servicecontainertest', [LifeCycleTestController::class, 'showServiceContainerTest']); //追記部分
-Route::get('/serviceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']); //追記部分
+Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
+Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
+Route::get('/servicecontainertest', [LifeCycleTestController::class, 'showServiceContainerTest']);
+Route::get('/serviceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']);
 
 
 Route::middleware('auth')->group(function () {

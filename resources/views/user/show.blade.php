@@ -92,6 +92,9 @@
             <div class="mb-4 text-center">
                 <button data-micromodal-trigger="modal-1" href='javascript:;' type="button" class="text-white bg-gray-400 border-0 py-2 px-6 focus:outline-none hover:bg-gray-500 rounded">ショップの詳細を見る</button>
             </div>
+            <div>
+              <button type="button" onclick="location.href='{{ route('user.items.index') }}'" class="bg-gray-300 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">戻る</button>
+            <div>
         </div>
     </div>
 

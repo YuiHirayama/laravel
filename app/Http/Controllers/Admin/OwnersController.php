@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Owner; // Eloquent
+use App\Models\Owner;
 use App\Models\Shop;
-use Illuminate\Support\Facades\DB; // QueryBuilder
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Throwable;
@@ -27,22 +26,6 @@ class OwnersController extends Controller
      */
     public function index()
     {
-        // $date_now = Carbon::now();
-        // $date_parse = Carbon::parse(now());
-        // echo $date_now->year;
-        // echo $date_parse;
-
-        // $e_all = Owner::all();
-        // $q_get = DB::table('owners')->select('name', 'created_at')->get();
-        // $q_first = DB::table('owners')->select('name')->first();
-
-        // $c_test = collect([
-        //     'name' => 'てすと'
-        // ]);
-        
-        // var_dump($q_first);
-
-        // dd($e_all, $q_get, $q_first, $c_test);
         $owners = Owner::select('id','name', 'email', 'created_at')
         ->paginate(3);
         
@@ -94,14 +77,6 @@ class OwnersController extends Controller
         ->route('admin.owners.index')
         ->with(['message' => 'オーナー登録を実施しました。',
         'status' => 'info']);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
