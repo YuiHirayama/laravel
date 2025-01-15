@@ -66,7 +66,7 @@ class CartController extends Controller
             ->sum('quantity');
 
             if($product->pivot->quantity > $quantity){
-                return ridirect()->route('user.cart.index');
+                return redirect()->route('user.cart.index');
             } else {
                 $price_data = ([
                     'unit_amount' => $product->price,
@@ -123,7 +123,7 @@ class CartController extends Controller
         foreach($user->products as $product){
             Stock::create([
                 'product_id' => $product->id,
-                'type' => \Constant::PRODUCT_LIST['add'],
+                'type' => Constant::PRODUCT_LIST['add'],
                 'quantity' => $product->pivot->quantity
              ]);
         }

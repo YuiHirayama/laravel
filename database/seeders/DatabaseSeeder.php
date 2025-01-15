@@ -16,12 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         $this->call([
             AdminSeeder::class,
             OwnerSeeder::class,
@@ -32,7 +26,7 @@ class DatabaseSeeder extends Seeder
             // StockSeeder::class,
             UserSeeder::class,
         ]);
-        Product::factory(100)->create();
-        Stock::factory(100)->create();
+        Product::factory(50)->create();
+        Stock::factory(50)->create();
     }
 }
