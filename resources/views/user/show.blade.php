@@ -14,31 +14,31 @@
                           <div class="swiper">
                             <div class="swiper-wrapper">
                               <div class="swiper-slide">
-                                @if($product->imageFirst->filename !== null)
+                                @if(isset($product->imageFirst) && $product->imageFirst->filename !== null)
                                   <img src="{{ asset('storage/products/' . $product->imageFirst->filename) }}">
                                 @else
-                                  <img src="">
+                                  <img src="{{ asset('storage/no_image.jpg') }}">
                                 @endif
                               </div>
                               <div class="swiper-slide">
-                                @if($product->imageSecond->filename !== null)
+                                @if(isset($product->imageSecond) && $product->imageSecond->filename !== null)
                                   <img src="{{ asset('storage/products/' . $product->imageSecond->filename) }}">
                                 @else
-                                  <img src="">
+                                  <img src="{{ asset('storage/no_image.jpg') }}">
                                 @endif
                               </div>
                               <div class="swiper-slide">
-                                @if($product->imageThird->filename !== null)
+                                @if(isset($product->imageThird) && $product->imageThird->filename !== null)
                                   <img src="{{ asset('storage/products/' . $product->imageThird->filename) }}">
                                 @else
-                                  <img src="">
+                                  <img src="{{ asset('storage/no_image.jpg') }}">
                                 @endif
                               </div>
                               <div class="swiper-slide">
-                                @if($product->imageFourth->filename !== null)
+                                @if(isset($product->imageFourth) && $product->imageFourth->filename !== null)
                                   <img src="{{ asset('storage/products/' . $product->imageFourth->filename) }}">
                                 @else
-                                  <img src="">
+                                  <img src="{{ asset('storage/no_image.jpg') }}">
                                 @endif
                               </div>
                             </div>
@@ -47,7 +47,7 @@
                             <div class="swiper-button-next"></div>
                             <div class="swiper-scrollbar"></div>
                           </div>
-                        </div>
+                        </div>                                              
                         <div class="md:w-1/2 ml-4">
                           <h2 class="text-sm title-font text-gray-500 tracking-widest mb-2">{{ $product->category->name }}</h2>
                           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{ $product->name }}</h1>
