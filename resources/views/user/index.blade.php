@@ -15,8 +15,7 @@
                               <div class="w-1/4 p-2 md:p-4">
                               <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                               <div class="border rounded-md p-4">
-                                {{-- 1枚目を選択していなければnull(NoImages)で表示 --}}
-                                <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
+                                <x-thumbnail filename="{{ $product->filename ?? 'no_image.png' }}" type="products" />
                                 <div class="mt-4">
                                   <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
                                   <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
